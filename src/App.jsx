@@ -5,56 +5,56 @@ const CATEGORIES = [
     code: 'AC',
     title: 'Air Conditioning Parts',
     blurb: 'Compressors, capacitors, sensors, valves, and more.',
-    emoji: '❄️',
+    img: '/products/ac.jpg',
     tone: 'cyan'
   },
   {
     code: 'REF',
     title: 'Refrigeration Components',
     blurb: 'Parts for refrigeration and cooling systems.',
-    emoji: '🧊',
+    img: '/products/ref.jpg',
     tone: 'blue'
   },
   {
     code: 'CU',
     title: 'Copper Tubes & Fittings',
     blurb: 'Installation materials for professional contractors.',
-    emoji: '🔧',
+    img: '/products/cu.jpg',
     tone: 'orange'
   },
   {
     code: 'ELEC',
     title: 'Electrical Components',
     blurb: 'Wiring accessories, relays, breakers, and controls.',
-    emoji: '⚡',
+    img: '/products/elec.jpg',
     tone: 'yellow'
   },
   {
     code: 'INS',
     title: 'Installation Materials',
     blurb: 'Insulation, mounting accessories, and consumables.',
-    emoji: '🧱',
+    img: '/products/ins.jpg',
     tone: 'pink'
   },
   {
     code: 'TLS',
     title: 'Tools & Accessories',
     blurb: 'Equipment and accessories for installation teams.',
-    emoji: '🛠️',
+    img: '/products/tls.jpg',
     tone: 'lime'
   },
   {
     code: 'FLT',
     title: 'Industrial Air Filters',
     blurb: 'HEPA and V-Bank air filtration for factories, offices and commercial buildings across Thailand.',
-    emoji: '🌪️',
+    img: '/products/flt.jpg',
     tone: 'purple'
   },
   {
     code: 'SIL',
     title: 'ADB Silicone Sealant',
     blurb: 'ADB-brand cartridges — GP, General Purpose, Glass & Aquarium and All Purpose — permanently flexible, high-strength silicone for factory and installation work.',
-    emoji: '🧴',
+    img: '/products/sil.jpg',
     tone: 'red'
   }
 ];
@@ -239,6 +239,18 @@ function App() {
           <p className="section-head__sub">Eight categories, one counter. Everything a contractor or installer needs.</p>
         </div>
 
+        <figure className="about__photo">
+          <img
+            src="/technician-gauges.jpg"
+            alt="Technician checking refrigeration manifold gauges on an AC unit"
+            loading="lazy"
+          />
+          <figcaption className="about__photo-cap">
+            ON THE JOB — manifold gauge check 🔧
+          </figcaption>
+          <span className="about__photo-sticker rotate-right">FIELD-TESTED PARTS</span>
+        </figure>
+
         <div className="about__grid">
           {ABOUT.map(card => (
             <article className="about__card" key={card.n}>
@@ -267,7 +279,9 @@ function App() {
           {CATEGORIES.map((c, i) => (
             <article className={`card card--${c.tone}`} key={c.code} style={{ '--i': i }}>
               <div className="card__code">{c.code}</div>
-              <div className="card__emoji">{c.emoji}</div>
+              <div className="card__media">
+                <img src={c.img} alt={c.title} loading="lazy" />
+              </div>
               <h3 className="card__title">{c.title}</h3>
               <p className="card__blurb">{c.blurb}</p>
               <a className="card__link" href="#contact">
@@ -376,6 +390,13 @@ function App() {
           COLD CHAINS · HOT DEALS
         </div>
         <div className="footer__legal">© 2026 ATD Supply Co., Ltd. · atdsupply.co.th</div>
+        <p className="footer__credits">
+          Photos via <a href="https://commons.wikimedia.org" target="_blank" rel="noreferrer">Wikimedia Commons</a> —
+          compressor: Dinkun Chen (CC BY-SA 4.0) · condensing unit: AnyNameWillExpire (CC BY-SA 4.0) · copper
+          fittings: Emilian Robert Vicol (CC BY 2.0) · breakers:(CC0) · insulation: Achim Hering (CC BY 3.0) ·
+          tools: (CC0) · HEPA filter: Home Air Quality Guides (CC BY-SA 2.0) · sealant: Cjp24 (CC BY-SA 3.0) ·
+          field photo: USAF / 379th ECES (public domain)
+        </p>
       </footer>
     </div>
   );
